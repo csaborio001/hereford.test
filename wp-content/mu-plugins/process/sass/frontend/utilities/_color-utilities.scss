@@ -1,0 +1,58 @@
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+$colors: primary, secondary, base, action, other;
+$opacities: 10, 25, 50, 75, 90, 100;
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// Base utilities
+@each $color in $colors {
+  @each $opacity in $opacities {
+    .bg-#{$color}-#{$opacity} {
+      background-color: var(--color-#{$color}-#{$opacity});
+    }
+    .text-#{$color}-#{$opacity} {
+      color: var(--color-#{$color}-#{$opacity});
+    }
+    .border-#{$color}-#{$opacity} {
+      border-color: var(--color-#{$color}-#{$opacity});
+    }
+  }
+}
+
+// Responsive variants
+@each $bp, $width in $breakpoints {
+  @media (min-width: $width) {
+    @each $color in $colors {
+      @each $opacity in $opacities {
+        .#{$bp}\:bg-#{$color}-#{$opacity} {
+          background-color: var(--color-#{$color}-#{$opacity});
+        }
+        .#{$bp}\:text-#{$color}-#{$opacity} {
+          color: var(--color-#{$color}-#{$opacity});
+        }
+        .#{$bp}\:border-#{$color}-#{$opacity} {
+          border-color: var(--color-#{$color}-#{$opacity});
+        }
+      }
+    }
+  }
+}
+
+// -----------------------------
+// Extras (very useful)
+// -----------------------------
+.bg-transparent {
+  background-color: transparent;
+}
+
+.text-inherit {
+  color: inherit;
+}
+
+.border-transparent {
+  border-color: transparent;
+}

@@ -1,0 +1,550 @@
+@use "sass:map";
+
+// Shadow tokens and utility classes.
+// Keep shadow values here so _variables.scss remains focused on primitive scales.
+
+$shadows: (
+  sm: "0 1px 2px 0 rgba(var(--color-base-rgb), 0.05)",
+  md:
+    "0 4px 6px -1px rgba(var(--color-base-rgb), 0.1), 0 2px 4px -2px rgba(var(--color-base-rgb), 0.1)",
+  lg:
+    "0 10px 15px -3px rgba(var(--color-base-rgb), 0.1), 0 4px 6px -4px rgba(var(--color-base-rgb), 0.1)",
+  xl:
+    "0 20px 25px -5px rgba(var(--color-base-rgb), 0.1), 0 8px 10px -6px rgba(var(--color-base-rgb), 0.1)",
+  inner: "inset 0 2px 4px 0 rgba(var(--color-base-rgb), 0.05)",
+  none: "none",
+);
+
+.shadow-sm {
+  box-shadow: #{map.get($shadows, sm)};
+}
+
+.shadow-md {
+  box-shadow: #{map.get($shadows, md)};
+}
+
+.shadow-lg {
+  box-shadow: #{map.get($shadows, lg)};
+}
+
+.shadow-xl {
+  box-shadow: #{map.get($shadows, xl)};
+}
+
+.shadow-inner {
+  box-shadow: #{map.get($shadows, inner)};
+}
+
+.shadow-none {
+  box-shadow: #{map.get($shadows, none)};
+}
+
+/*
+Box-shadow utilities inferred from Bricks Advanced Themer v3.3.15 box-shadow generator presets.
+Class names are inferred from the visual behavior of each preset; shadow values are extracted from the plugin preset array.
+*/
+
+
+/* Directional shadows */
+
+.shadow-direction-top {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-right {
+box-shadow:
+25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-bottom {
+box-shadow:
+0px 25px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-left {
+box-shadow:
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-top-right {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-vertical {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+0px 25px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-top-left {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-bottom-right {
+box-shadow:
+0px 25px 20px -20px rgba(0,0,0, 0.45),
+25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-bottom-left {
+box-shadow:
+0px 25px 20px -20px rgba(0,0,0, 0.45),
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-horizontal {
+box-shadow:
+25px 0px 20px -20px rgba(0,0,0, 0.45),
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-open-left {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+0px 25px 20px -20px rgba(0,0,0, 0.45),
+25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-open-right {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+0px 25px 20px -20px rgba(0,0,0, 0.45),
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+.shadow-direction-all {
+box-shadow:
+0px -25px 20px -20px rgba(0,0,0, 0.45),
+25px 0px 20px -20px rgba(0,0,0, 0.45),
+0px 25px 20px -20px rgba(0,0,0, 0.45),
+-25px 0px 20px -20px rgba(0,0,0, 0.45);
+}
+
+
+/* Elevation scale */
+
+.shadow-elevation-1 {
+box-shadow:
+0px 1px 3px 0px rgba(0,0,0, 0.12),
+0px 1px 2px 0px rgba(0,0,0, 0.24);
+}
+
+.shadow-elevation-2 {
+box-shadow:
+0px 3px 6px 0px rgba(0,0,0, 0.16),
+0px 3px 6px 0px rgba(0,0,0, 0.23);
+}
+
+.shadow-elevation-3 {
+box-shadow:
+0px 10px 20px 0px rgba(0,0,0, 0.19),
+0px 6px 6px 0px rgba(0,0,0, 0.23);
+}
+
+.shadow-elevation-4 {
+box-shadow:
+0px 14px 28px 0px rgba(0,0,0, 0.25),
+0px 10px 10px 0px rgba(0,0,0, 0.22);
+}
+
+.shadow-elevation-5 {
+box-shadow:
+0px 19px 38px 0px rgba(0,0,0, 0.3),
+0px 15px 12px 0px rgba(0,0,0, 0.22);
+}
+
+.shadow-elevation-6 {
+box-shadow:
+0px 29px 52px 0px rgba(0,0,0, 0.4),
+0px 25px 16px 0px rgba(0,0,0, 0.2);
+}
+
+.shadow-elevation-7 {
+box-shadow:
+0px 45px 65px 0px rgba(0,0,0, 0.5),
+0px 35px 22px 0px rgba(0,0,0, 0.16);
+}
+
+.shadow-elevation-8 {
+box-shadow:
+0px 60px 80px 0px rgba(0,0,0, 0.6),
+0px 45px 26px 0px rgba(0,0,0, 0.14);
+}
+
+
+/* Layered ambient shadows */
+
+.shadow-layered-xs {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.12),
+0px 2px 2px 0px rgba(0,0,0, 0.12);
+}
+
+.shadow-layered-md {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.12),
+0px 2px 2px 0px rgba(0,0,0, 0.12),
+0px 4px 4px 0px rgba(0,0,0, 0.12),
+0px 8px 8px 0px rgba(0,0,0, 0.12),
+0px 16px 16px 0px rgba(0,0,0, 0.12);
+}
+
+.shadow-layered-compact {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.15),
+0px 2px 2px 0px rgba(0,0,0, 0.15),
+0px 4px 4px 0px rgba(0,0,0, 0.15),
+0px 8px 8px 0px rgba(0,0,0, 0.15);
+}
+
+.shadow-layered-xl {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.11),
+0px 2px 2px 0px rgba(0,0,0, 0.11),
+0px 4px 4px 0px rgba(0,0,0, 0.11),
+0px 8px 8px 0px rgba(0,0,0, 0.11),
+0px 16px 16px 0px rgba(0,0,0, 0.11),
+0px 32px 32px 0px rgba(0,0,0, 0.11);
+}
+
+.shadow-layered-progressive {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.08),
+0px 2px 2px 0px rgba(0,0,0, 0.12),
+0px 4px 4px 0px rgba(0,0,0, 0.16),
+0px 8px 8px 0px rgba(0,0,0, 0.2);
+}
+
+.shadow-layered-soft {
+box-shadow:
+0px 1px 2px 0px rgba(0,0,0, 0.07),
+0px 2px 4px 0px rgba(0,0,0, 0.07),
+0px 4px 8px 0px rgba(0,0,0, 0.07),
+0px 8px 16px 0px rgba(0,0,0, 0.07),
+0px 16px 32px 0px rgba(0,0,0, 0.07),
+0px 32px 64px 0px rgba(0,0,0, 0.07);
+}
+
+.shadow-layered-stacked {
+box-shadow:
+0px 1px 1px 0px rgba(0,0,0, 0.11),
+0px 2px 2px 0px rgba(0,0,0, 0.11),
+0px 4px 4px 0px rgba(0,0,0, 0.11),
+0px 6px 8px 0px rgba(0,0,0, 0.11),
+0px 8px 16px 0px rgba(0,0,0, 0.11);
+}
+
+.shadow-layered-long {
+box-shadow:
+0px 2px 1px 0px rgba(0,0,0, 0.09),
+0px 4px 2px 0px rgba(0,0,0, 0.09),
+0px 8px 4px 0px rgba(0,0,0, 0.09),
+0px 16px 8px 0px rgba(0,0,0, 0.09),
+0px 32px 16px 0px rgba(0,0,0, 0.09);
+}
+
+
+/* Tailwind-like floating shadows */
+
+.shadow-tailwind-xs {
+box-shadow:
+0px 1px 2px 0px rgba(0,0,0, 0.05);
+}
+
+.shadow-tailwind-sm {
+box-shadow:
+0px 1px 3px 0px rgba(0,0,0, 0.1),
+0px 1px 2px -1px rgba(0,0,0, 0.1);
+}
+
+.shadow-tailwind-lg {
+box-shadow:
+0px 10px 15px -3px rgba(0,0,0, 0.1),
+0px 4px 6px -4px rgba(0,0,0, 0.1);
+}
+
+.shadow-tailwind-xl {
+box-shadow:
+0px 20px 25px -5px rgba(0,0,0, 0.1),
+0px 8px 10px -6px rgba(0,0,0, 0.1);
+}
+
+.shadow-tailwind-2xl {
+box-shadow:
+0px 25px 50px -12px rgba(0,0,0, 0.25);
+}
+
+
+/* Card shadows */
+
+.shadow-card-sm {
+box-shadow:
+0px 2px 4px 0px rgba(0,0,0, 0.13),
+0px 1px 1px 0px rgba(0,0,0, 0.11);
+}
+
+.shadow-card-md {
+box-shadow:
+0px 3px 7px 0px rgba(0,0,0, 0.13),
+0px 1px 2px 0px rgba(0,0,0, 0.11);
+}
+
+.shadow-card-lg {
+box-shadow:
+0px 7px 15px 0px rgba(0,0,0, 0.13),
+0px 1px 4px 0px rgba(0,0,0, 0.11);
+}
+
+.shadow-card-xl {
+box-shadow:
+0px 26px 58px 0px rgba(0,0,0, 0.22),
+0px 5px 14px 0px rgba(0,0,0, 0.18);
+}
+
+
+/* Soft shadows and system shadows */
+
+.shadow-soft-xs {
+box-shadow:
+0px 2px 4px 0px rgba(0,0,0, 0.075);
+}
+
+.shadow-soft-sm {
+box-shadow:
+0px 8px 16px 0px rgba(0,0,0, 0.15);
+}
+
+.shadow-soft-md {
+box-shadow:
+0px 16px 48px 0px rgba(0,0,0, 0.176);
+}
+
+.shadow-hairline {
+box-shadow:
+0px 1px 0px 0px rgba(27,31,36, 0.04);
+}
+
+.shadow-github-sm {
+box-shadow:
+0px 3px 6px 0px rgba(140,149,159, 0.15);
+}
+
+.shadow-github-md {
+box-shadow:
+0px 8px 24px 0px rgba(140,149,159, 0.2);
+}
+
+.shadow-github-lg {
+box-shadow:
+0px 12px 28px 0px rgba(140,149,159, 0.3);
+}
+
+.shadow-muted-glow {
+box-shadow:
+0px 7px 30px -10px rgba(150,170,180, 0.5);
+}
+
+
+/* Raised, diffuse, outline, hard and neumorphic shadows */
+
+.shadow-raised-xs {
+box-shadow:
+2px 2px 2px 0px rgba(0,0,0, 0.15);
+}
+
+.shadow-raised-sm {
+box-shadow:
+0px 2px 4px 0px rgba(0,0,0, 0.2);
+}
+
+.shadow-raised-lg {
+box-shadow:
+0px 20px 50px -10px rgba(0,0,0, 0.2);
+}
+
+.shadow-raised-hero {
+box-shadow:
+0px 80px 50px -30px rgba(0,0,0, 0.15);
+}
+
+.shadow-diffuse {
+box-shadow:
+0px 25px 80px 0px rgba(0,0,0, 0.15);
+}
+
+.shadow-diffuse-strong {
+box-shadow:
+0px 25px 80px 0px rgba(0,0,0, 0.5);
+}
+
+.shadow-lifted {
+box-shadow:
+0px 15px 20px 0px rgba(0,0,0, 0.2);
+}
+
+.shadow-outline-soft {
+box-shadow:
+0px 0px 0px 5px rgba(0,0,0, 0.05);
+}
+
+.shadow-hard-offset {
+box-shadow:
+8px 8px 0px 0px rgba(0,0,0, 1);
+}
+
+.shadow-hard-stack-left {
+box-shadow:
+-10px 10px 0px 0px rgba(33,33,33, 1),
+-20px 20px 0px 0px rgba(33,33,33, 0.7),
+-30px 30px 0px 0px rgba(33,33,33, 0.4),
+-40px 40px 0px 0px rgba(33,33,33, 0.1);
+}
+
+.shadow-glow-dark {
+box-shadow:
+0px 0px 40px 0px rgba(0,0,0, 0.45);
+}
+
+.shadow-neumorphic-soft {
+box-shadow:
+0px 10px 1px 0px rgba(221,221,221, 1),
+0px 10px 20px 0px rgba(204,204,204, 1);
+}
+
+.shadow-atlassian-card {
+box-shadow:
+0px 1px 1px 0px rgba(9,30,66, 0.25),
+0px 0px 1px 1px rgba(9,30,66, 0.13);
+}
+
+.shadow-focus-ring-dark {
+box-shadow:
+0px 1px 4px 0px rgba(0,0,0, 0.16),
+0px 0px 0px 3px rgba(51,51,51, 1);
+}
+
+.shadow-border-subtle {
+box-shadow:
+0px 1px 3px 0px rgba(0,0,0, 0.02),
+0px 0px 0px 1px rgba(27,31,35, 0.15);
+}
+
+.shadow-atlassian-raised {
+box-shadow:
+0px 4px 8px -2px rgba(9,30,66, 0.25),
+0px 0px 0px 1px rgba(9,30,66, 0.08);
+}
+
+
+/* Pixel, retro, rainbow and colored shadows */
+
+.shadow-pixel-stair {
+box-shadow:
+0px 1px 0px 0px rgba(0,0,0, 0.22),
+1px 0px 0px 0px rgba(0,0,0, 0.22),
+1px 2px 0px 0px rgba(0,0,0, 0.22),
+2px 1px 0px 0px rgba(0,0,0, 0.22),
+2px 3px 0px 0px rgba(0,0,0, 0.22),
+3px 2px 0px 0px rgba(0,0,0, 0.22),
+3px 4px 0px 0px rgba(0,0,0, 0.22),
+4px 3px 0px 0px rgba(0,0,0, 0.22),
+4px 5px 0px 0px rgba(0,0,0, 0.22),
+5px 4px 0px 0px rgba(0,0,0, 0.22),
+5px 6px 0px 0px rgba(0,0,0, 0.22),
+6px 5px 0px 0px rgba(0,0,0, 0.22),
+6px 7px 0px 0px rgba(0,0,0, 0.22),
+7px 6px 0px 0px rgba(0,0,0, 0.22),
+7px 8px 0px 0px rgba(0,0,0, 0.22),
+8px 7px 0px 0px rgba(0,0,0, 0.22);
+}
+
+.shadow-pop {
+box-shadow:
+0px 3px 8px 0px rgba(0,0,0, 0.24);
+}
+
+.shadow-ink-depth {
+box-shadow:
+0px 9px 20px 0px rgba(13,38,76, 0.19);
+}
+
+.shadow-whisper {
+box-shadow:
+0px 3px 5px 0px rgba(0,0,0, 0.04);
+}
+
+.shadow-rainbow-outline {
+box-shadow:
+0px 0px 0px 3px rgba(148,0,211, 1),
+0px 0px 0px 6px rgba(75,0,130, 1),
+0px 0px 0px 9px rgba(0,0,255, 1),
+0px 0px 0px 12px rgba(0,255,0, 1),
+0px 0px 0px 15px rgba(255,255,0, 1),
+0px 0px 0px 18px rgba(255,127,0, 1),
+0px 0px 0px 21px rgba(255,0,0, 1);
+}
+
+.shadow-rainbow-cast {
+box-shadow:
+0px 0px 0px 2px rgba(148,0,211, 1),
+15px -15px 0px -2px rgba(255,255,255, 1),
+15px -15px 0px 0px rgba(75,0,130, 1),
+30px -30px 0px -2px rgba(255,255,255, 1),
+30px -30px 0px 0px rgba(0,0,255, 1),
+45px -45px 0px -2px rgba(255,255,255, 1),
+45px -45px 0px 0px rgba(0,255,0, 1),
+60px -60px 0px -2px rgba(255,255,255, 1),
+60px -60px 0px 0px rgba(255,255,0, 1),
+75px -75px 0px -2px rgba(255,255,255, 1),
+75px -75px 0px 0px rgba(255,127,0, 1),
+90px -90px 0px -2px rgba(255,255,255, 1),
+90px -90px 0px 0px rgba(255,0,0, 1);
+}
+
+.shadow-retro-drop {
+box-shadow:
+0px 5px 0px 0px rgba(65,117,5, 1),
+0px 10px 0px 0px rgba(65,117,5, 0.6),
+0px 15px 0px 0px rgba(65,117,5, 0.4),
+0px 20px 0px 0px rgba(65,117,5, 0.2),
+0px 25px 0px 0px rgba(65,117,5, 0.1);
+}
+
+.shadow-retro-cast-right {
+box-shadow:
+5px 5px 0px 0px rgba(65,117,5, 1),
+10px 10px 0px 0px rgba(65,117,5, 0.6),
+15px 15px 0px 0px rgba(65,117,5, 0.4),
+20px 20px 0px 0px rgba(65,117,5, 0.2),
+25px 25px 0px 0px rgba(65,117,5, 0.1);
+}
+
+.shadow-retro-cast-left {
+box-shadow:
+-5px 5px 0px 0px rgba(65,117,5, 1),
+-10px 10px 0px 0px rgba(65,117,5, 0.6),
+-15px 15px 0px 0px rgba(65,117,5, 0.4),
+-20px 20px 0px 0px rgba(65,117,5, 0.2),
+-25px 25px 0px 0px rgba(65,117,5, 0.1);
+}
+
+.shadow-retro-sticker {
+box-shadow:
+0px 0px 0px 2px rgba(218,102,123, 1),
+8px 8px 0px 0px rgba(218,102,123, 1);
+}
+
+.shadow-warm-glow-sm {
+box-shadow:
+0px 9px 30px 0px rgba(255,149,5, 0.1);
+}
+
+.shadow-warm-glow-md {
+box-shadow:
+0px 9px 30px 0px rgba(255,149,5, 0.3);
+}

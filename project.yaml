@@ -1,0 +1,51 @@
+schema: 1
+slug: hereford-net-au
+title: hereford-net-au
+namespace: HerefordNetAu
+domain: hereford-net-au.test
+timezone: Australia/Sydney
+admin:
+  user: siteadmin
+  email: admin@hereford-net-au.test
+gitRemote: ""
+commercialPlugins: /Users/csaborio/WebSites/_plugins_basic
+plugins:
+  - one-user-avatar
+  - open-external-links-in-a-new-window
+  - nextend-facebook-connect
+  - block-manager
+  - disable-admin-notices
+  - css-class-manager
+  - enable-media-replace
+  - user-switching
+  - ybug-feedback-widget
+  - temporary-login-without-password
+  - updraftplus
+  - disable-user-login
+  - commandify
+  - simple-custom-post-order
+pluginVersions:
+  one-user-avatar: 2.5.6
+  open-external-links-in-a-new-window: "1.45"
+  nextend-facebook-connect: 3.1.26
+  block-manager: 3.2.1
+  disable-admin-notices: 1.4.8
+  css-class-manager: 1.6.1
+  enable-media-replace: 4.2.3
+  user-switching: 1.12.2
+  ybug-feedback-widget: 1.2.2
+  temporary-login-without-password: 1.9.10
+  updraftplus: 2.24.2.26
+  disable-user-login: 2.1.7
+  commandify: 1.1.0
+  simple-custom-post-order: 2.8.11
+theme:
+  repository: git@github.com:csaborio001/breakdance-zero-theme.git
+  ref: 906adf0ffe1ce4f21e2701a60a25627e0d359bf8
+images:
+  wordpress: wordpress:7.0.2-php8.3-apache
+  database: mariadb:10.5.8
+  caddy: caddy:2.10.2
+  mail: jcalonso/mailhog@sha256:f35c05c5e7bd005020a7865838c198c0fcb2ce1a64c5497c4c9c72dec5050cc9
+  phpmyadmin: phpmyadmin:5.2.3
+browserSyncPort: 3000

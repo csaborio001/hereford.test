@@ -1,0 +1,36 @@
+{
+    "name": "scorpiotek/infrastructure",
+    "description": "Defines the dependencies for the infrastructure of the website.",
+    "type": "library",
+    "require": {
+        "scorpiotek/scorpiotek-wordpress-utilities": "dev-develop"
+    },
+    "authors": [
+        {
+            "name": "Christian Saborio",
+            "email": "csaborio@scorpiotek.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:csaborio001/scorpiotek-wordpress-utilities.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HerefordNetAu\\": "src/"
+        }
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "lucatume/wp-browser": "^3.1",
+        "codeception/module-asserts": "^1.0",
+        "codeception/module-phpbrowser": "^1.0",
+        "codeception/module-webdriver": "^1.0",
+        "codeception/module-db": "^1.0",
+        "codeception/module-filesystem": "^1.0",
+        "codeception/module-cli": "^1.0",
+        "codeception/util-universalframework": "^1.0"
+    }
+}

@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "../base/variables" as *;
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+.ui-alert:not(.wppb_register_pre_form_message) {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: map.get($spacing, sm);
+  align-items: start;
+
+  padding: map.get($spacing, md);
+  border-radius: map.get($border-radius, md);
+
+  border: 1px solid transparent;
+
+  /* Default (notice) */
+  --alert-color: var(--intent-notice);
+  --alert-text: var(--color-base-100);
+
+  color: var(--alert-text);
+
+  /* Background tint + border.
+     color-mix() is widely supported in modern browsers; if you need older support,
+     replace with hardcoded rgba values. */
+  background: color-mix(in srgb, var(--alert-color) 12%, white);
+  border-color: color-mix(in srgb, var(--alert-color) 35%, white);
+}
+
+.alert__icon {
+  line-height: 1;
+  margin-top: 2px;
+  color: var(--alert-color);
+  font-weight: map.get($font-weights, bold);
+}
+
+.alert__title {
+  color: var(--alert-color);
+  font-weight: map.get($font-weights, bold);
+  line-height: map.get($line-heights, tight);
+}
+
+.alert__body {
+  color: var(--alert-text);
+  line-height: map.get($line-heights, normal);
+}
+
+.alert__close {
+  background: transparent;
+  border: 0;
+  color: var(--alert-text);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* Variants */
+.ui-alert.ui-alert-info {
+  --alert-color: #2563eb;
+}
+.ui-alert.ui-alert-notice {
+  --alert-color: #0891b2;
+}
+.ui-alert.ui-alert-success {
+  --alert-color: #16a34a;
+}
+.ui-alert.ui-alert-warning {
+  --alert-color: #d97706;
+}
+.ui-alert.ui-alert-error {
+  --alert-color: #dc2626;
+}
+
+/* Optional modifiers */
+.ui-alert--bordered {
+  border-width: 2px;
+}
+
+.ui-alert--compact {
+  padding: map.get($spacing, sm);
+  gap: map.get($spacing, xs);
+  grid-template-columns: auto 1fr;
+}
+
+.alert--no-icon {
+  grid-template-columns: 1fr auto;
+  .alert__icon {
+    display: none;
+  }
+}

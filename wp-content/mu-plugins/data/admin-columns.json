@@ -1,0 +1,38 @@
+{
+  "acf-column-setup": [
+      {
+        "post_type": "product",
+        "ignore": [
+          "sku",
+          "product_tag",
+          "featured"
+        ],
+        "columns": {
+          "truefalse_display_front_page": "Display Front"
+        }
+      },
+    {
+      "post_type": "post",
+      "ignore": [
+        "title",
+        "author",
+        "categories",
+        "tags",
+        "comments",
+        "date"
+      ],
+      "columns": {
+        "_thumbnail_id": "Imagen",
+        "title": "Nombre",
+        "categories": "Categorías",
+        "date": "Fecha"
+      }
+    },
+    {
+      "post_type": "prensa",
+      "columns": {
+        "featured": "Imagen"
+      }
+    }
+  ]
+}

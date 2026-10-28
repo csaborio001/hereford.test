@@ -1,0 +1,30 @@
+// Framework fallback values. Keep this file tracked with the framework.
+// Project-specific values belong in _project-local.scss, which is ignored.
+
+$color-primary-rgb: (0, 61, 153) !default;
+$color-secondary-rgb: (255, 238, 0) !default;
+$color-base-rgb: (15, 23, 36) !default;
+$color-action-rgb: (47, 111, 219) !default;
+$color-action-alt-rgb: (247, 217, 120) !default;
+$color-background-rgb: (246, 250, 255) !default;
+$color-accent-rgb: (35, 64, 107) !default;
+
+$button-primary: rgb(29, 84, 118) !default;
+$button-primary-hover: rgb(21, 61, 86) !default;
+$button-primary-text: #fff !default;
+
+$button-secondary: rgb(228, 180, 119) !default;
+$button-secondary-hover: rgb(210, 160, 95) !default;
+$button-secondary-text: #fff !default;
+
+$button-accent: rgb(88, 153, 163) !default;
+$button-accent-hover: rgba(88, 153, 163, 0.85) !default;
+$button-accent-text: #fff !default;
+
+$button-success: rgb(88, 158, 112) !default;
+$button-success-hover: rgba(88, 158, 112, 0.85) !default;
+$button-success-text: #fff !default;
+
+$button-danger: rgb(180, 85, 72) !default;
+$button-danger-hover: rgba(180, 85, 72, 0.85) !default;
+$button-danger-text: #fff !default;

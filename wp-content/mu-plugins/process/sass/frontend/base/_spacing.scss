@@ -1,0 +1,92 @@
+// scss/base/_spacing.scss
+
+@use "sass:map";
+@use "variables" as *;
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+// --- Base Spacing Utilities ---
+// Generates .m-xs, .p-lg, .gap-md, etc.
+@each $key, $value in $spacing {
+  .m-#{$key} {
+    margin: map.get($spacing, $key);
+  }
+  .mt-#{$key} {
+    margin-top: map.get($spacing, $key);
+  }
+  .mb-#{$key} {
+    margin-bottom: map.get($spacing, $key);
+  }
+  .ml-#{$key} {
+    margin-left: map.get($spacing, $key);
+  }
+  .mr-#{$key} {
+    margin-right: map.get($spacing, $key);
+  }
+
+  .p-#{$key} {
+    padding: map.get($spacing, $key);
+  }
+  .pt-#{$key} {
+    padding-top: map.get($spacing, $key);
+  }
+  .pb-#{$key} {
+    padding-bottom: map.get($spacing, $key);
+  }
+  .pl-#{$key} {
+    padding-left: map.get($spacing, $key);
+  }
+  .pr-#{$key} {
+    padding-right: map.get($spacing, $key);
+  }
+
+  // ADDED: Base Gap Utility
+  .gap-#{$key} {
+    gap: map.get($spacing, $key);
+  }
+}
+
+// --- Responsive Spacing Utilities ---
+// Generates .m-md-xs, .p-lg-lg, .gap-lg-xl, etc.
+@each $bp, $width in $breakpoints {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @each $key, $value in $spacing {
+      .m-#{$bp}-#{$key} {
+        margin: map.get($spacing, $key);
+      }
+      .mt-#{$bp}-#{$key} {
+        margin-top: map.get($spacing, $key);
+      }
+      .mb-#{$bp}-#{$key} {
+        margin-bottom: map.get($spacing, $key);
+      }
+      .ml-#{$bp}-#{$key} {
+        margin-left: map.get($spacing, $key);
+      }
+      .mr-#{$bp}-#{$key} {
+        margin-right: map.get($spacing, $key);
+      }
+
+      .p-#{$bp}-#{$key} {
+        padding: map.get($spacing, $key);
+      }
+      .pt-#{$bp}-#{$key} {
+        padding-top: map.get($spacing, $key);
+      }
+      .pb-#{$bp}-#{$key} {
+        padding-bottom: map.get($spacing, $key);
+      }
+      .pl-#{$bp}-#{$key} {
+        padding-left: map.get($spacing, $key);
+      }
+      .pr-#{$bp}-#{$key} {
+        padding-right: map.get($spacing, $key);
+      }
+
+      // ADDED: Responsive Gap Utility
+      .gap-#{$bp}-#{$key} {
+        gap: map.get($spacing, $key);
+      }
+    }
+  }
+}

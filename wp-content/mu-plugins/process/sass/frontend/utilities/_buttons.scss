@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "../base/variables" as *;
+@use "../base/tokens" as *;
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+// the names must match your CSS variables: --button-<name> in tokens
+$button-colors: (primary, secondary, accent, success, danger);
+$button-font-sizes: (
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.125rem,
+);
+$button-min-heights: (
+  sm: 2.25rem,
+  md: 2.75rem,
+  lg: 3.25rem,
+);
+
+// Base Button
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-weight: map.get($font-weights, medium);
+  line-height: map.get($line-heights, normal);
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  border: 1px solid transparent;
+  background-color: transparent;
+
+  padding: map.get($button-padding, md);
+  min-height: map.get($button-min-heights, md);
+  font-size: map.get($button-font-sizes, md);
+  border-radius: map.get($border-radius, md);
+
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+}
+
+// Solid buttons
+@each $name in $button-colors {
+  .btn-#{$name} {
+    background-color: var(--button-#{$name});
+    border-color: var(--button-#{$name});
+    color: var(--button-#{$name}-text, #fff);
+
+    &:hover {
+      background-color: var(
+        --button-#{$name}-hover,
+        var(--button-#{$name})
+      );
+      border-color: var(
+        --button-#{$name}-hover,
+        var(--button-#{$name})
+      );
+    }
+  }
+}
+
+// Outline buttons
+@each $name in $button-colors {
+  .btn-outline-#{$name} {
+    background-color: transparent;
+    color: var(--button-#{$name});
+    border-color: var(--button-#{$name});
+
+    &:hover {
+      background-color: var(--button-#{$name});
+      border-color: var(--button-#{$name});
+      color: var(--button-#{$name}-text, #fff);
+    }
+  }
+}
+
+// Sizes
+@each $size, $padding in $button-padding {
+  .btn-#{$size} {
+    padding: $padding;
+    min-height: map.get($button-min-heights, $size);
+    font-size: map.get($button-font-sizes, $size);
+  }
+}
+
+// Radius variants
+@each $shape, $radius in $border-radius {
+  .btn-round-#{$shape} {
+    border-radius: $radius;
+  }
+}

@@ -1,0 +1,119 @@
+name: st-hereford-net-au
+services:
+  database:
+    image: mariadb:10.5.8
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: ${DB_PASSWORD:?}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?}
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h 127.0.0.1 -u root -p"$$MYSQL_ROOT_PASSWORD" --silent
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  wordpress:
+    build:
+      context: .
+      args:
+        WORDPRESS_IMAGE: wordpress:7.0.2-php8.3-apache
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?}
+    volumes:
+      - wordpress:/var/www/html
+      - type: bind
+        source: ../wp-content/mu-plugins
+        target: /var/www/html/wp-content/mu-plugins
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../wp-content/themes/breakdance-zero-theme
+        target: /var/www/html/wp-content/themes/breakdance-zero-theme
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../wp-config.php
+        target: /var/www/html/wp-config.php
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../.htaccess
+        target: /var/www/html/.htaccess
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../.scorpiotek/plugin-zips
+        target: /opt/plugin-zips
+        read_only: true
+        bind:
+          create_host_path: false
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -fsS
+        - http://localhost/wp-includes/css/dashicons.min.css
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  caddy:
+    image: caddy:2.10.2
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - type: bind
+        source: ./Caddyfile
+        target: /etc/caddy/Caddyfile
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../certs
+        target: /certs
+        read_only: true
+        bind:
+          create_host_path: false
+    depends_on:
+      wordpress:
+        condition: service_healthy
+  mail:
+    image: jcalonso/mailhog@sha256:f35c05c5e7bd005020a7865838c198c0fcb2ce1a64c5497c4c9c72dec5050cc9
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:1025:1025
+      - 127.0.0.1:51915:8025
+  phpmyadmin:
+    image: phpmyadmin:5.2.3
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:8080:80
+    environment:
+      PMA_HOST: database
+    depends_on:
+      database:
+        condition: service_healthy
+volumes:
+  database:
+    labels:
+      com.scorpiotek.project-id: 426cb0a7-3a7e-4ab6-8895-fdacf9fdb8a2
+  wordpress:
+    labels:
+      com.scorpiotek.project-id: 426cb0a7-3a7e-4ab6-8895-fdacf9fdb8a2

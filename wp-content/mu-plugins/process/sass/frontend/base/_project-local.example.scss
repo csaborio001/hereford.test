@@ -1,0 +1,33 @@
+// Copy this file to _project-local.scss for each project.
+// _project-local.scss is tracked in generated projects and can be edited per site.
+// Remove any entries you do not need to override.
+
+@forward "project-defaults" with (
+  $color-primary-rgb: (0, 61, 153),
+  $color-secondary-rgb: (255, 238, 0),
+  $color-base-rgb: (15, 23, 36),
+  $color-action-rgb: (47, 111, 219),
+  $color-action-alt-rgb: (247, 217, 120),
+  $color-background-rgb: (246, 250, 255),
+  $color-accent-rgb: (35, 64, 107),
+
+  $button-primary: rgb(29, 84, 118),
+  $button-primary-hover: rgb(21, 61, 86),
+  $button-primary-text: #fff,
+
+  $button-secondary: rgb(228, 180, 119),
+  $button-secondary-hover: rgb(210, 160, 95),
+  $button-secondary-text: #fff,
+
+  $button-accent: rgb(88, 153, 163),
+  $button-accent-hover: rgba(88, 153, 163, 0.85),
+  $button-accent-text: #fff,
+
+  $button-success: rgb(88, 158, 112),
+  $button-success-hover: rgba(88, 158, 112, 0.85),
+  $button-success-text: #fff,
+
+  $button-danger: rgb(180, 85, 72),
+  $button-danger-hover: rgba(180, 85, 72, 0.85),
+  $button-danger-text: #fff
+);

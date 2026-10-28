@@ -1,0 +1,204 @@
+// scss/base/_layout.scss
+
+@use "sass:map";
+@use "variables" as *;
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+// --- Container & Flexbox (No changes) ---
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1280px;
+}
+
+.container-slim {
+  @extend.container;
+  padding-left: 0;
+  padding-right: 0;
+}
+.flex-power {
+  display: flex;
+  flex-direction: row;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive flex direction
+@each $bp, $width in $breakpoints {
+  @media (min-width: $width) {
+    .flex-#{$bp}-row {
+      flex-direction: row;
+    }
+    .flex-#{$bp}-col {
+      flex-direction: column;
+    }
+  }
+}
+
+// --- NEW: Alignment & Justification Utilities ---
+$align-items: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch,
+);
+
+$justify-content: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+// Generate base classes (e.g., .items-center, .justify-between)
+@each $key, $value in $align-items {
+  .items-#{$key} {
+    align-items: $value;
+  }
+}
+@each $key, $value in $justify-content {
+  .justify-#{$key} {
+    justify-content: $value;
+  }
+}
+
+// Generate responsive classes (e.g., .items-md-center, .justify-lg-between)
+@each $bp, $width in $breakpoints {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @each $key, $value in $align-items {
+      .items-#{$bp}-#{$key} {
+        align-items: $value;
+      }
+    }
+    @each $key, $value in $justify-content {
+      .justify-#{$bp}-#{$key} {
+        justify-content: $value;
+      }
+    }
+  }
+}
+
+// --- Grid System ---
+.grid {
+  display: grid;
+}
+
+// Grid column utilities
+@for $i from 1 through 6 {
+  .grid-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}
+
+// Responsive Grid Column Utilities (Builder-friendly)
+@each $bp, $width in $breakpoints {
+  @media (min-width: $width) {
+    @for $i from 1 through 6 {
+      .grid-#{$bp}-#{$i} {
+        grid-template-columns: repeat(#{$i}, 1fr);
+      }
+    }
+  }
+}
+
+// Grid Item Order Utilities (Builder-friendly)
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-first {
+  order: -9999;
+}
+.order-last {
+  order: 9999;
+}
+
+// Grid column span utilities
+
+@for $i from 1 through 6 {
+  .col-span-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+@each $bp, $width in $breakpoints {
+  @media (min-width: $width) {
+    @for $i from 1 through 6 {
+      .col-#{$bp}-span-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+
+    .col-#{$bp}-full {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  .row-span-#{$i} {
+    grid-row: span #{$i};
+  }
+}
+
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+// Full width helper
+
+.col-full {
+  grid-column: 1 / -1;
+}
+
+@each $bp, $width in $breakpoints {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    .order-#{$bp}-1 {
+      order: 1;
+    }
+    .order-#{$bp}-2 {
+      order: 2;
+    }
+    .order-#{$bp}-first {
+      order: -9999;
+    }
+    .order-#{$bp}-last {
+      order: 9999;
+    }
+  }
+}
+
+// --- NEW: Builder Compatibility Fix ---
+// This automatically "unwraps" the builder's container when it's inside a grid.
+.grid > .section-container,
+.flex-power > .section-container,
+.flex-col > .section-container {
+  display: contents;
+}
+
+.height-100-pc {
+  height: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

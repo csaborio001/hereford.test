@@ -1,0 +1,10 @@
+{
+  "url": "https://hereford-net-au.test",
+  "domain": "hereford-net-au.test",
+  "port": 3000,
+  "styles": [
+    "process/sass/hereford-net-au.scss",
+    "process/sass/hereford-net-au-variables.scss",
+    "process/sass/st-admin-styles.scss"
+  ]
+}

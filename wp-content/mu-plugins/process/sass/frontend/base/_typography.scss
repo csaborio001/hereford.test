@@ -1,0 +1,66 @@
+@use "variables" as *;
+@use "sass:map";
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+
+// Use the CSS variable for font sizes
+@each $key, $value in $font-sizes {
+  .fs-#{$key} {
+    font-size: var(--fs-#{$key});
+  }
+}
+
+@each $key, $value in $line-heights {
+  .lh-#{$key} {
+    line-height: $value;
+  }
+}
+
+@each $key, $value in $font-weights {
+  .fw-#{$key} {
+    font-weight: $value;
+  }
+}
+
+// --- TEXT ALIGNMENT UTILITIES ---
+
+// Base alignment
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+// Responsive Text Alignment (Builder-friendly)
+@each $bp, $width in $breakpoints {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    .text-#{$bp}-left {
+      text-align: left;
+    }
+    .text-#{$bp}-center {
+      text-align: center;
+    }
+    .text-#{$bp}-right {
+      text-align: right;
+    }
+    .text-#{$bp}-justify {
+      text-align: justify;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: rgb(var(--color-primary-rgb));
+
+  &:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.85);
+  }
+}
+
+.btn-action {
+  @extend .btn;
+  color: #fff;
+  background-color: rgb(var(--color-action-rgb));
+
+  &:hover {
+    background-color: rgba(var(--color-action-rgb), 0.85);
+  }
+}

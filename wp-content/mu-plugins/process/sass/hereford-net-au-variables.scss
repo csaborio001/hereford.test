@@ -1,0 +1,4 @@
+// This file only compiles the CSS custom properties (tokens).
+// It needs the Sass variables to work.
+@use "frontend/base/variables.scss";
+@use "frontend/base/tokens";

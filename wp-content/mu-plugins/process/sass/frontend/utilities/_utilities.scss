@@ -1,0 +1,64 @@
+@use "../base/variables" as *;
+
+// WordPress page builders may require project-level overrides with higher specificity; keep framework declarations override-friendly so this repo remains the source of truth.
+
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline;
+}
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: grid;
+}
+.d-none {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+.z-0 {
+  z-index: 0;
+}
+.z-10 {
+  z-index: 10;
+}
+.z-50 {
+  z-index: 50;
+}
+
+// --- NEW WIDTH UTILITY ---
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+// --- NEW IMAGE FILL UTILITIES ---
+.image-fill {
+  flex: 1; // take remaining space
+  min-height: 0; // prevent overflow in flex containers
+}
+
+.image-fill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // fills the area without distortion
+}
+
+// Universal border radius utilities
+@each $shape, $radius in $border-radius {
+  .rounded-#{$shape} {
+    border-radius: $radius;
+  }
+}

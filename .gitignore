@@ -1,0 +1,13 @@
+node_modules/
+vendor/
+.scorpiotek/
+certs/
+deployment/.env
+wp-config.php
+wp-content/plugins/
+wp-content/uploads/
+wp-content/mu-plugins/dist/
+test-results/
+playwright-report/
+.env*
+.DS_Store

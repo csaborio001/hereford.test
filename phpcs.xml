@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Block Standards">
+    <description>WordPress Coding Standards for Blocks</description>
+
+    <!-- Use WordPress as a base -->
+    <rule ref="WordPress">
+        <!-- Common exclusions for blocks -->
+            <!-- File doc comment exclude -->
+            <exclude name="Squiz.Commenting.FileComment.Missing"/>
+
+            <!-- Output escaping excludes -->
+            <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
+            <exclude name="WordPress.Security.EscapeOutput.UnsafePrintingFunction"/>
+
+    </rule>
+
+    <!-- Force tab indentation -->
+    <arg name="tab-width" value="4"/>
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+</ruleset>

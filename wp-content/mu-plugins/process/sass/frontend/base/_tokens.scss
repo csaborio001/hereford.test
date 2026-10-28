@@ -1,0 +1,73 @@
+// Import variables to access shared maps and project token settings.
+@use "variables" as *;
+@use "project-local" as project;
+
+:root {
+  // RGB base tokens
+  --color-primary-rgb: #{project.$color-primary-rgb};
+  --color-secondary-rgb: #{project.$color-secondary-rgb};
+  --color-base-rgb: #{project.$color-base-rgb};
+  --color-action-rgb: #{project.$color-action-rgb};
+  --color-action-alt-rgb: #{project.$color-action-alt-rgb};
+  --color-background-rgb: #{project.$color-background-rgb};
+  --color-accent-rgb: #{project.$color-accent-rgb};
+
+  // RGB color opacity tokens. List values should not include -rgb.
+  @each $color
+    in (primary, secondary, base, action, action-alt, background, accent)
+  {
+    --color-#{$color}-10: rgb(var(--color-#{$color}-rgb), 0.1);
+    --color-#{$color}-25: rgb(var(--color-#{$color}-rgb), 0.25);
+    --color-#{$color}-50: rgb(var(--color-#{$color}-rgb), 0.5);
+    --color-#{$color}-75: rgb(var(--color-#{$color}-rgb), 0.75);
+    --color-#{$color}-90: rgb(var(--color-#{$color}-rgb), 0.9);
+    --color-#{$color}-100: rgb(var(--color-#{$color}-rgb), 1);
+  }
+
+  /* Buttons */
+  --button-primary: #{project.$button-primary};
+  --button-primary-hover: #{project.$button-primary-hover};
+  --button-primary-text: #{project.$button-primary-text};
+
+  --button-secondary: #{project.$button-secondary};
+  --button-secondary-hover: #{project.$button-secondary-hover};
+  --button-secondary-text: #{project.$button-secondary-text};
+
+  --button-accent: #{project.$button-accent};
+  --button-accent-hover: #{project.$button-accent-hover};
+  --button-accent-text: #{project.$button-accent-text};
+
+  --button-success: #{project.$button-success};
+  --button-success-hover: #{project.$button-success-hover};
+  --button-success-text: #{project.$button-success-text};
+
+  --button-danger: #{project.$button-danger};
+  --button-danger-hover: #{project.$button-danger-hover};
+  --button-danger-text: #{project.$button-danger-text};
+
+  /* Alert intent aliases */
+  --intent-info: #2563eb;
+  --intent-info-text: #fff;
+
+  --intent-warning: #d97706;
+  --intent-warning-text: #fff;
+
+  --intent-notice: #0891b2;
+  --intent-notice-text: #fff;
+
+  --intent-success: #16a34a;
+  --intent-success-text: #fff;
+
+  --intent-error: #dc2626;
+  --intent-error-text: #fff;
+
+  // Font size tokens
+  @each $key, $value in $font-sizes {
+    --fs-#{$key}: #{$value};
+  }
+
+  // Spacing tokens
+  @each $key, $value in $spacing {
+    --space-#{$key}: #{$value};
+  }
+}

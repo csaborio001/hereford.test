@@ -1,0 +1,4 @@
+hereford-net-au.test {
+ tls /certs/site.pem /certs/site-key.pem
+ reverse_proxy wordpress:80
+}
